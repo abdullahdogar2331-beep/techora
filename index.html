@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Techora — Smarter Tech. Better Choices.</title>
+  <meta
+    name="description"
+    content="Techora helps you discover, compare, and choose tech products with practical buying guides and clear product insights."
+  />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0d10" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #08090b;
+      --surface: #101216;
+      --surface-2: #15171c;
+      --text: #f5f7fa;
+      --muted: #9da3ad;
+      --line: rgba(255,255,255,0.09);
+      --accent: #b8ff3d;
+      --accent-dark: #8fc72c;
+      --max: 1180px;
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8,9,11,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: #c7cbd1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: var(--accent);
+      filter: blur(150px);
+      opacity: 0.08;
+      right: -180px;
+      top: 60px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 13px;
+      border: 1px solid rgba(184,255,61,0.22);
+      background: rgba(184,255,61,0.06);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #080a06;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(184,255,61,0.4);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .section-head h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 38px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 500px;
+      font-size: 14px;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      background: #0c0e11;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .category-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      min-height: 155px;
+      transition: 0.25s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184,255,61,0.35);
+    }
+
+    .category-icon {
+      font-size: 25px;
+      margin-bottom: 22px;
+    }
+
+    .category-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .category-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* GUIDES */
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .guide-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184,255,61,0.3);
+    }
+
+    .guide-image {
+      height: 190px;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(184,255,61,0.25), transparent 30%),
+        linear-gradient(135deg, #191c22, #0c0e11);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .guide-content {
+      padding: 24px;
+    }
+
+    .tag {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .guide-content h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+
+    .guide-content p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .read-more {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .read-more:hover {
+      color: var(--accent);
+    }
+
+    /* TRUST */
+
+    .trust {
+      background: var(--accent);
+      color: #080a06;
+    }
+
+    .trust-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .trust h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 48px;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .trust p {
+      margin-top: 18px;
+      max-width: 550px;
+      opacity: 0.75;
+    }
+
+    .trust-points {
+      display: grid;
+      gap: 15px;
+    }
+
+    .trust-point {
+      background: rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 18px 20px;
+      border-radius: 15px;
+      font-weight: 700;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      text-align: center;
+    }
+
+    .newsletter-box {
+      max-width: 780px;
+      margin: auto;
+      padding: 55px 30px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+    }
+
+    .newsletter h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 40px;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 520px;
+      margin: auto;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #0b0d10;
+      color: white;
+      outline: none;
+    }
+
+    .newsletter-form input:focus {
+      border-color: var(--accent);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 55px 0 25px;
+      background: #060709;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand {
+      max-width: 330px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 55px;
+    }
+
+    .footer-column h4 {
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 8px 0;
+    }
+
+    .footer-column a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      color: #777d86;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero {
+        min-height: 580px;
+      }
+
+      h1 {
+        font-size: 52px;
+        letter-spacing: -2.5px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head h2 {
+        margin-bottom: 12px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Tech<span>ora</span></a>
+
+        <div class="nav-links">
+          <a href="#categories">Categories</a>
+          <a href="#guides">Buying Guides</a>
+          <a href="#trust">How We Review</a>
+          <a href="#newsletter" class="nav-button">Stay Updated</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Independent Tech Buying Guides
+          </div>
+
+          <h1>
+            Smarter Tech.<br />
+            <span>Better Choices.</span>
+          </h1>
+
+          <p>
+            Discover practical buying guides, product comparisons, and
+            technology insights designed to help you make more informed
+            purchasing decisions.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#guides" class="btn btn-primary">
+              Explore Buying Guides
+            </a>
+
+            <a href="#categories" class="btn btn-secondary">
+              Browse Categories
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories" id="categories">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <h2>Explore Tech</h2>
+          </div>
+
+          <p>
+            Explore carefully organized categories to find the technology
+            you're looking for.
+          </p>
+        </div>
+
+        <div class="category-grid">
+
+          <a href="#" class="category-card">
+            <div class="category-icon">⌨️</div>
+            <h3>Keyboards</h3>
+            <p>Mechanical, wireless and everyday keyboards.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">🖱️</div>
+            <h3>Mice</h3>
+            <p>Gaming, productivity and ergonomic options.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">🎧</div>
+            <h3>Headphones</h3>
+            <p>Audio products for work, travel and entertainment.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">🖥️</div>
+            <h3>Monitors</h3>
+            <p>Displays for productivity, gaming and creators.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">📷</div>
+            <h3>Webcams</h3>
+            <p>Video solutions for meetings and content creation.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">🔌</div>
+            <h3>USB-C Hubs</h3>
+            <p>Connectivity accessories for modern devices.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">💻</div>
+            <h3>Laptop Accessories</h3>
+            <p>Useful accessories for better laptop setups.</p>
+          </a>
+
+          <a href="#" class="category-card">
+            <div class="category-icon">💡</div>
+            <h3>Desk Setup</h3>
+            <p>Products for a cleaner and more productive workspace.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BUYING GUIDES -->
+    <section id="guides">
+      <div class="container">
+
+        <div class="section-head">
+          <div>
+            <h2>Latest Buying Guides</h2>
+          </div>
+
+          <p>
+            Practical guides that explain what to look for before buying.
+          </p>
+        </div>
+
+        <div class="guide-grid">
+
+          <article class="guide-card">
+            <div class="guide-image">⌨️</div>
+
+            <div class="guide-content">
+              <div class="tag">Keyboards</div>
+
+              <h3>
+                How to Choose the Right Mechanical Keyboard
+              </h3>
+
+              <p>
+                Learn about switches, layouts, connectivity and the features
+                that actually matter.
+              </p>
+
+              <a href="#" class="read-more">
+                Read Guide →
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-image">🎧</div>
+
+            <div class="guide-content">
+              <div class="tag">Audio</div>
+
+              <h3>
+                What to Look for in Wireless Headphones
+              </h3>
+
+              <p>
+                A simple breakdown of battery life, comfort, codecs,
+                microphones and noise cancellation.
+              </p>
+
+              <a href="#" class="read-more">
+                Read Guide →
+              </a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-image">🖥️</div>
+
+            <div class="guide-content">
+              <div class="tag">Monitors</div>
+
+              <h3>
+                Monitor Buying Guide for Your Desk Setup
+              </h3>
+
+              <p>
+                Understand size, resolution, refresh rate and connectivity
+                before choosing your next display.
+              </p>
+
+              <a href="#" class="read-more">
+                Read Guide →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust" id="trust">
+      <div class="container">
+
+        <div class="trust-inner">
+
+          <div>
+            <h2>
+              Buying tech shouldn't feel complicated.
+            </h2>
+
+            <p>
+              Techora focuses on clear explanations and useful information
+              so readers can understand their options before making a purchase.
+            </p>
+          </div>
+
+          <div class="trust-points">
+
+            <div class="trust-point">
+              ✓ Clear product information
+            </div>
+
+            <div class="trust-point">
+              ✓ Practical buying guidance
+            </div>
+
+            <div class="trust-point">
+              ✓ Easy-to-understand comparisons
+            </div>
+
+            <div class="trust-point">
+              ✓ Reader-focused content
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+
+        <div class="newsletter-box">
+
+          <h2>Stay Ahead of Your Next Purchase.</h2>
+
+          <p>
+            Get useful technology guides and buying insights when we publish
+            something new.
+          </p>
+
+          <form
+            class="newsletter-form"
+            onsubmit="event.preventDefault(); alert('Newsletter signup will be connected soon.');"
+          >
+            <input
+              type="email"
+              placeholder="Your email address"
+              aria-label="Email address"
+              required
+            />
+
+            <button type="submit" class="btn btn-primary">
+              Subscribe
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Tech<span>ora</span></a>
+
+          <p>
+            Practical technology guides to help you make informed buying
+            decisions.
+          </p>
+        </div>
+
+        <div class="footer-links">
+
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="#categories">Categories</a>
+            <a href="#guides">Buying Guides</a>
+            <a href="#trust">How We Review</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="#">Affiliate Disclosure</a>
+            <a href="#">Terms</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Techora. All rights reserved.</span>
+
+        <span>
+          Techora may earn commissions from qualifying purchases.
+        </span>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
