@@ -86,10 +86,10 @@ footer{padding:55px 0 22px}.footgrid{display:grid;grid-template-columns:1.7fr 1f
 <div class="copy"><div class="ey">How we score</div><h2>One scale.<br><span class="red">Four checks.</span><br>Zero noise.</h2><p>Techora's editorial framework looks at performance, value, build quality and longevity. The goal is to make product research easier to understand.</p>
 <div class="stats"><div class="stat"><small>In-depth guides</small><strong>30+</strong></div><div class="stat"><small>Categories</small><strong>6</strong></div><div class="stat"><small>Paid placements</small><strong>0</strong></div></div></div>
 <div class="checks">
-<div class="check"><div class="checkicon">✦</div><div><h3>Performance</h3><p>How well it handles its main job.</p></div><div class="pct">40%</div><div class="bar"><i style="width:100%"></i></div></div>
-<div class="check"><div class="checkicon">◇</div><div><h3>Value</h3><p>What you get for the money.</p></div><div class="pct">25%</div><div class="bar"><i style="width:62.5%"></i></div></div>
-<div class="check"><div class="checkicon">✓</div><div><h3>Build & design</h3><p>Materials, ergonomics and comfort.</p></div><div class="pct">20%</div><div class="bar"><i style="width:50%"></i></div></div>
-<div class="check"><div class="checkicon">↻</div><div><h3>Longevity</h3><p>Support, warranty and useful lifespan.</p></div><div class="pct">15%</div><div class="bar"><i style="width:37.5%"></i></div></div>
+<div class="check"><div class="checkicon">✦</div><div><h3>Performance</h3><p>How well it handles its main job.</p></div><div class="pct" data-target="40">0%</div><div class="bar"><i style="width:100%"></i></div></div>
+<div class="check"><div class="checkicon">◇</div><div><h3>Value</h3><p>What you get for the money.</p></div><div class="pct" data-target="25">0%</div><div class="bar"><i style="width:62.5%"></i></div></div>
+<div class="check"><div class="checkicon">✓</div><div><h3>Build & design</h3><p>Materials, ergonomics and comfort.</p></div><div class="pct" data-target="20">0%</div><div class="bar"><i style="width:50%"></i></div></div>
+<div class="check"><div class="checkicon">↻</div><div><h3>Longevity</h3><p>Support, warranty and useful lifespan.</p></div><div class="pct" data-target="15">0%</div><div class="bar"><i style="width:37.5%"></i></div></div>
 </div></div></section>
 
 <section id="guides"><div class="wrap">
@@ -118,6 +118,24 @@ footer{padding:55px 0 22px}.footgrid{display:grid;grid-template-columns:1.7fr 1f
 <script>
 function toggleMenu(){const x=document.querySelector('.links');if(x.dataset.open){x.dataset.open='';x.style.display='none'}else{x.dataset.open='1';x.style.display='flex';x.style.position='absolute';x.style.top='72px';x.style.left='12px';x.style.right='12px';x.style.padding='18px';x.style.background='#fff';x.style.border='1px solid #e8e8eb';x.style.borderRadius='18px';x.style.flexDirection='column'}}
 function subscribeUser(e){e.preventDefault();const x=document.getElementById('email');if(x.value){alert('Thanks for subscribing to Techora! Newsletter delivery can be connected later.');x.value=''}}
+const scoreObserver=new IntersectionObserver((entries,observer)=>{
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.querySelectorAll('.pct[data-target]').forEach(el=>{
+const target=Number(el.dataset.target),duration=900,start=performance.now();
+function tick(now){
+const progress=Math.min((now-start)/duration,1);
+const eased=1-Math.pow(1-progress,3);
+el.textContent=Math.round(target*eased)+'%';
+if(progress<1)requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+});
+observer.unobserve(entry.target);
+});
+},{threshold:.3});
+const scoreSection=document.querySelector('#method');
+if(scoreSection)scoreObserver.observe(scoreSection);
 </script>
 </body>
 </html>
