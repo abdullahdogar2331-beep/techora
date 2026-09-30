@@ -1,1853 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Techora — Smarter Tech. Better Choices.</title>
-
-  <meta
-    name="description"
-    content="Techora helps you discover useful technology, buying guides, comparisons and accessories for smarter purchasing decisions."
-  >
-
-  <meta
-    name="keywords"
-    content="tech products, technology buying guide, keyboards, mice, headphones, monitors, laptop accessories, desk setup"
-  >
-
-  <style>
-    :root {
-      :root {
-  --bg: #f7faff;
-  --bg-soft: #eef5ff;
-  --card: #ffffff;
-  --card-hover: #f5f9ff;
-  --text: #0b1b33;
-  --muted: #607089;
-  --line: rgba(15, 61, 110, 0.12);
-
-  --accent: #1769ff;
-  --accent-dark: #0d4dcc;
-
-  --blue-dark: #082a5c;
-  --blue-soft: #e4efff;
-
-  --white: #ffffff;
-
-  --max: 1240px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techora — Smart Tech Deals & Buying Guides</title>
+<meta name="description" content="Techora helps you discover useful tech products, compare features, and find smart Amazon deals through practical buying guides.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#d71920;--red-dark:#b80f15;--red-soft:#fff1f1;
+  --black:#101114;--text:#17181b;--muted:#6b7078;
+  --white:#fff;--line:#e8e8eb;--soft:#f7f7f8;
+  --max:1240px;--radius:18px;--shadow:0 12px 35px rgba(16,17,20,.08)
 }
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    .container {
-      width: min(var(--max), 92%);
-      margin: auto;
-    }
-
-    /* NAVBAR */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8,9,11,.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      color: #c9cdd3;
-      font-size: 14px;
-      transition: .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-button {
-      background: var(--accent);
-      color: #0a0b0c !important;
-      padding: 11px 18px;
-      border-radius: 10px;
-      font-weight: 800;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 90px 0 70px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 6vw, 82px);
-      line-height: .98;
-      letter-spacing: -4px;
-      max-width: 760px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-text {
-      color: var(--muted);
-      max-width: 620px;
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 21px;
-      border-radius: 11px;
-      font-weight: 800;
-      font-size: 14px;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #090a0b;
-    }
-
-    .btn-primary:hover {
-      background: #c9ff68;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: rgba(255,255,255,.03);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.07);
-    }
-
-    .hero-image {
-      height: 500px;
-      border-radius: 26px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      position: relative;
-      background: var(--card);
-    }
-
-    .hero-image img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: auto 20px 20px 20px;
-      padding: 18px;
-      border-radius: 16px;
-      background: rgba(5,6,7,.78);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--line);
-    }
-
-    .hero-overlay strong {
-      display: block;
-      font-size: 17px;
-      margin-bottom: 4px;
-    }
-
-    .hero-overlay span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* TRUST STRIP */
-
-    .trust-strip {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--bg-soft);
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .trust-item {
-      padding: 25px;
-      text-align: center;
-      border-right: 1px solid var(--line);
-    }
-
-    .trust-item:last-child {
-      border-right: 0;
-    }
-
-    .trust-item strong {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-
-    .trust-item span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* GENERAL SECTION */
-
-    .section {
-      padding: 95px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 30px;
-      margin-bottom: 38px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(32px, 4vw, 52px);
-      letter-spacing: -2px;
-      line-height: 1;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 450px;
-    }
-
-    /* FEATURED */
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .featured-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: .25s;
-    }
-
-    .featured-card:hover {
-      transform: translateY(-6px);
-      background: var(--card-hover);
-      border-color: rgba(184,255,61,.35);
-    }
-
-    .featured-image {
-      height: 190px;
-      overflow: hidden;
-    }
-
-    .featured-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .4s;
-    }
-
-    .featured-card:hover img {
-      transform: scale(1.04);
-    }
-
-    .featured-content {
-      padding: 23px;
-    }
-
-    .tag {
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-    }
-
-    .featured-content h3 {
-      font-size: 22px;
-      margin: 8px 0 10px;
-    }
-
-    .featured-content p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .card-link {
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    /* CATEGORIES */
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .category-card {
-      min-height: 220px;
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--card);
-    }
-
-    .category-card img {
-      height: 100%;
-      object-fit: cover;
-      transition: .4s;
-    }
-
-    .category-card:hover img {
-      transform: scale(1.07);
-    }
-
-    .category-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: end;
-      padding: 22px;
-      background: linear-gradient(
-        transparent 30%,
-        rgba(0,0,0,.88)
-      );
-    }
-
-    .category-overlay h3 {
-      font-size: 20px;
-    }
-
-    .category-overlay span {
-      color: #bfc4cc;
-      font-size: 12px;
-      display: block;
-    }
-
-    /* GUIDES */
-
-    .guides-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .guide-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .guide-image {
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .guide-image img {
-      height: 100%;
-      object-fit: cover;
-      transition: .4s;
-    }
-
-    .guide-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .guide-content {
-      padding: 25px;
-    }
-
-    .guide-content h3 {
-      font-size: 23px;
-      line-height: 1.25;
-      margin: 8px 0 12px;
-    }
-
-    .guide-content p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    /* COMPARISONS */
-
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .comparison-card {
-      padding: 30px;
-      background: linear-gradient(
-        145deg,
-        #15181d,
-        #0e1013
-      );
-      border: 1px solid var(--line);
-      border-radius: 20px;
-    }
-
-    .compare-icon {
-      width: 50px;
-      height: 50px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: rgba(184,255,61,.1);
-      color: var(--accent);
-      font-size: 23px;
-      margin-bottom: 22px;
-    }
-
-    .comparison-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .comparison-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    /* TRENDING */
-
-    .trending-grid {
-      display: grid;
-      grid-template-columns: 1.4fr .8fr .8fr;
-      gap: 20px;
-    }
-
-    .trend-card {
-      min-height: 390px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-    }
-
-    .trend-card img {
-      height: 100%;
-      object-fit: cover;
-      transition: .5s;
-    }
-
-    .trend-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .trend-content {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 28px;
-      background: linear-gradient(
-        transparent,
-        rgba(0,0,0,.95)
-      );
-    }
-
-    .trend-content h3 {
-      font-size: 25px;
-      margin-top: 7px;
-    }
-
-    .trend-content p {
-      color: #c2c7ce;
-      font-size: 13px;
-      margin-top: 6px;
-    }
-
-    /* HOW WE CHOOSE */
-
-    .choose-section {
-      background: var(--accent);
-      color: #0a0b0c;
-    }
-
-    .choose-section .eyebrow {
-      color: #111;
-    }
-
-    .choose-section .section-head p {
-      color: #273018;
-    }
-
-    .choose-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .choose-card {
-      background: rgba(0,0,0,.08);
-      border: 1px solid rgba(0,0,0,.12);
-      border-radius: 18px;
-      padding: 28px;
-    }
-
-    .choose-number {
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 25px;
-    }
-
-    .choose-card h3 {
-      font-size: 20px;
-      margin-bottom: 9px;
-    }
-
-    .choose-card p {
-      font-size: 13px;
-      color: #303a22;
-    }
-
-    /* FAQ */
-
-    .faq-wrap {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    details {
-      border-top: 1px solid var(--line);
-      padding: 22px 0;
-    }
-
-    details:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-size: 18px;
-      font-weight: 800;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      color: var(--accent);
-      font-size: 24px;
-    }
-
-    details[open] summary::after {
-      content: "−";
-    }
-
-    details p {
-      color: var(--muted);
-      padding-top: 15px;
-      max-width: 750px;
-    }
-
-    /* NEWSLETTER */
-
-    .newsletter {
-      padding: 75px 30px;
-      border: 1px solid var(--line);
-      border-radius: 25px;
-      text-align: center;
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(184,255,61,.11),
-          transparent 50%
-        ),
-        var(--card);
-    }
-
-    .newsletter h2 {
-      font-size: clamp(32px, 4vw, 48px);
-      letter-spacing: -2px;
-      margin-bottom: 12px;
-    }
-
-    .newsletter p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 25px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      max-width: 520px;
-      margin: auto;
-      gap: 10px;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      min-width: 0;
-      padding: 15px 17px;
-      background: #08090b;
-      color: white;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      outline: none;
-    }
-
-    .newsletter-form input:focus {
-      border-color: var(--accent);
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--line);
-      margin-top: 30px;
-    }
-
-    .footer-main {
-      padding: 60px 0;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-brand p {
-      color: var(--muted);
-      max-width: 350px;
-      font-size: 14px;
-      margin-top: 15px;
-    }
-
-    .footer-column h4 {
-      margin-bottom: 17px;
-      font-size: 14px;
-    }
-
-    .footer-column a {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      margin: 9px 0;
-    }
-
-    .footer-column a:hover {
-      color: var(--accent);
-    }
-
-    .footer-bottom {
-      padding: 22px 0;
-      border-top: 1px solid var(--line);
-      color: #747a84;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 950px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        height: 400px;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .choose-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trending-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .trend-card:first-child {
-        grid-column: span 2;
-      }
-
-      .footer-main {
-        grid-template-columns: 2fr 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-
-      .hero {
-        padding: 60px 0;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-        letter-spacing: -2.5px;
-      }
-
-      .hero-image {
-        height: 320px;
-      }
-
-      .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-item:nth-child(2) {
-        border-right: 0;
-      }
-
-      .featured-grid,
-      .guides-grid,
-      .comparison-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .category-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-head p {
-        margin-top: 15px;
-      }
-
-      .choose-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trending-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trend-card:first-child {
-        grid-column: auto;
-      }
-
-      .trend-card {
-        min-height: 320px;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: span 2;
-      }
-
-      .footer-bottom {
-        display: block;
-      }
-
-      .footer-bottom span {
-        display: block;
-        margin-top: 7px;
-      }
-    }
-
-    @media (max-width: 450px) {
-
-      .category-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 41px;
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trust-item {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-brand {
-        grid-column: auto;
-      }
-    }
-  </style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--text);line-height:1.55}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+img{display:block;width:100%}
+.container{width:min(var(--max),92%);margin:auto}
+.topbar{background:var(--black);color:#fff;font-size:12px;text-align:center;padding:9px 15px}
+.topbar strong{color:#ff5a60}
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{height:76px;display:flex;align-items:center;gap:30px}
+.logo{font-family:"Space Grotesk",sans-serif;font-size:28px;font-weight:700;letter-spacing:-1.5px}
+.logo span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav-links a{font-size:14px;font-weight:600;color:#3f4248}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red);color:#fff!important;padding:11px 17px;border-radius:10px}
+.nav-cta:hover{background:var(--red-dark)!important}
+.menu-btn{display:none;border:0;background:var(--soft);width:42px;height:42px;border-radius:10px;cursor:pointer}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--black);margin:4px auto}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff;padding:12px 4% 18px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 0;font-weight:600;border-bottom:1px solid #f0f0f1}
+.hero{background:linear-gradient(180deg,#fff 0%,#fff 72%,#fff8f8 100%);padding:72px 0 55px}
+.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:55px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--red);font-size:11px;font-weight:800;letter-spacing:1.5px;padding:8px 11px;border-radius:999px;margin-bottom:20px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.hero h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(45px,6vw,76px);line-height:.98;letter-spacing:-4px;max-width:720px}
+.hero h1 span{color:var(--red)}
+.hero-text{color:var(--muted);font-size:18px;max-width:620px;margin:24px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:11px;padding:14px 20px;font-weight:800;font-size:14px;transition:.2s}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-light{background:#fff;border:1px solid var(--line);color:var(--text)}
+.btn-light:hover{border-color:#c8c8cc;transform:translateY(-2px)}
+.hero-card{position:relative;border-radius:24px;overflow:hidden;min-height:510px;background:#eee;box-shadow:var(--shadow)}
+.hero-card img{height:510px;object-fit:cover}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.76))}
+.hero-product{position:absolute;z-index:2;left:22px;right:22px;bottom:22px;background:rgba(255,255,255,.95);padding:19px;border-radius:15px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hero-product small{display:block;color:var(--red);font-weight:800;font-size:10px;letter-spacing:1px;margin-bottom:4px}
+.hero-product strong{font-size:18px}
+.hero-product a{white-space:nowrap;background:var(--black);color:#fff;padding:10px 14px;border-radius:9px;font-size:12px;font-weight:800}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-item{text-align:center;padding:22px 14px;border-right:1px solid var(--line)}
+.trust-item:last-child{border:0}
+.trust-item strong{display:block;font-size:14px}
+.trust-item span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.section{padding:88px 0}
+.section.alt{background:var(--soft)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:32px}
+.kicker{font-size:10px;font-weight:900;letter-spacing:1.8px;color:var(--red);display:block;margin-bottom:9px}
+.section h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,4vw,48px);line-height:1;letter-spacing:-2px}
+.section-head p{color:var(--muted);max-width:460px;font-size:14px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;position:relative}
+.product:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#ddd}
+.product-img{height:235px;background:#f5f5f6;position:relative;overflow:hidden}
+.product-img img{height:100%;object-fit:cover;transition:.4s}
+.product:hover .product-img img{transform:scale(1.035)}
+.product-tag{position:absolute;left:12px;top:12px;background:var(--red);color:#fff;padding:6px 8px;border-radius:6px;font-size:9px;font-weight:900;letter-spacing:.7px}
+.product-body{padding:17px}
+.product-cat{font-size:10px;font-weight:800;color:var(--red);letter-spacing:1px}
+.product h3{font-family:"Space Grotesk",sans-serif;font-size:18px;line-height:1.2;margin:7px 0}
+.stars{color:#e49b00;font-size:12px;letter-spacing:1px}
+.product p{color:var(--muted);font-size:12px;margin:9px 0 15px;min-height:38px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:900;font-size:16px}
+.amazon-btn{background:var(--black);color:#fff;border-radius:8px;padding:9px 11px;font-size:11px;font-weight:800}
+.amazon-btn:hover{background:var(--red)}
+.disclosure{font-size:11px;color:#858991;margin-top:20px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.category{position:relative;height:220px;border-radius:16px;overflow:hidden}
+.category img{height:100%;object-fit:cover;transition:.4s}
+.category:hover img{transform:scale(1.06)}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.82))}
+.category-content{position:absolute;z-index:2;left:18px;right:18px;bottom:17px;color:#fff}
+.category-content h3{font-family:"Space Grotesk",sans-serif;font-size:20px}
+.category-content span{font-size:11px;color:#ddd}
+.deal{background:var(--black);color:#fff;border-radius:24px;padding:46px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.deal .kicker{color:#ff5b60}
+.deal h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(30px,4vw,48px);letter-spacing:-2px;line-height:1.02}
+.deal p{color:#bfc1c7;max-width:590px;margin-top:12px;font-size:14px}
+.deal-badge{background:var(--red);border-radius:16px;padding:20px 24px;text-align:center;min-width:180px}
+.deal-badge strong{display:block;font-size:30px}
+.deal-badge span{font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.guide{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.guide-img{height:210px;overflow:hidden}
+.guide-img img{height:100%;object-fit:cover;transition:.4s}
+.guide:hover .guide-img img{transform:scale(1.04)}
+.guide-body{padding:20px}
+.guide-body h3{font-family:"Space Grotesk",sans-serif;font-size:21px;line-height:1.18;margin:7px 0 9px}
+.guide-body p{font-size:13px;color:var(--muted);margin-bottom:16px}
+.read{color:var(--red);font-weight:800;font-size:12px}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.compare-card{padding:25px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.compare-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--red-soft);color:var(--red);border-radius:11px;font-weight:900;font-size:18px}
+.compare-card h3{font-family:"Space Grotesk",sans-serif;font-size:20px;margin:16px 0 8px}
+.compare-card p{font-size:13px;color:var(--muted);margin-bottom:16px}
+.faq{max-width:850px;margin:auto}
+details{border-top:1px solid var(--line);padding:21px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font-weight:800;display:flex;justify-content:space-between;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--red);font-size:22px}
+details[open] summary:after{content:"−"}
+details p{color:var(--muted);font-size:14px;padding-top:12px;max-width:750px}
+.newsletter{background:var(--red-soft);border:1px solid #ffd9da;border-radius:22px;padding:50px 30px;text-align:center}
+.newsletter h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(30px,4vw,46px);letter-spacing:-2px}
+.newsletter p{color:var(--muted);max-width:560px;margin:10px auto 23px;font-size:14px}
+.form{display:flex;max-width:520px;margin:auto;gap:9px}
+.form input{flex:1;min-width:0;border:1px solid #ddd;padding:14px 15px;border-radius:10px;outline:none;background:#fff}
+.form input:focus{border-color:var(--red)}
+footer{background:var(--black);color:#fff;padding-top:58px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:35px;padding-bottom:50px}
+.footer-brand p{color:#aeb1b7;font-size:13px;max-width:350px;margin-top:14px}
+.footer-title{font-weight:800;font-size:13px;margin-bottom:14px}
+.footer-col a{display:block;color:#aeb1b7;font-size:12px;margin:9px 0}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #292a2e;padding:20px 0;color:#8d9096;font-size:11px;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:1000px){
+ .nav-links{display:none}.menu-btn{display:block;margin-left:auto}.hero-grid{grid-template-columns:1fr}.hero-card,.hero-card img{min-height:420px;height:420px}
+ .products{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}
+ .trust-item:nth-child(2){border-right:0}.guides,.compare{grid-template-columns:1fr}.footer-grid{grid-template-columns:2fr 1fr 1fr}
+}
+@media(max-width:650px){
+ .topbar{font-size:10px}.nav-inner{height:68px}.logo{font-size:25px}.hero{padding:52px 0 40px}.hero h1{font-size:47px;letter-spacing:-2.8px}.hero-text{font-size:16px}.hero-card,.hero-card img{min-height:330px;height:330px}.hero-product{left:12px;right:12px;bottom:12px;padding:14px}.hero-product strong{font-size:15px}.hero-product a{padding:9px;font-size:10px}
+ .section{padding:65px 0}.section-head{display:block}.section-head p{margin-top:12px}.products{grid-template-columns:1fr 1fr;gap:11px}.product-img{height:175px}.product-body{padding:13px}.product h3{font-size:16px}.product p{font-size:11px;min-height:auto}.product-bottom{align-items:flex-end;flex-direction:column}.product-bottom .amazon-btn{width:100%;text-align:center}
+ .categories{grid-template-columns:1fr 1fr;gap:10px}.category{height:180px}.category-content h3{font-size:17px}.category-content span{font-size:9px}.deal{padding:30px 22px;grid-template-columns:1fr}.deal-badge{justify-self:start}.guides,.compare{grid-template-columns:1fr}.newsletter{padding:38px 18px}.form{flex-direction:column}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:span 2}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:7px}
+}
+@media(max-width:420px){
+ .products{grid-template-columns:1fr}.product-img{height:220px}.categories{grid-template-columns:1fr}.category{height:200px}.hero h1{font-size:41px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}
+}
+</style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
-
-  <header class="navbar">
-    <div class="container nav-inner">
-
-      <a href="index.html" class="logo">
-        Tech<span>ora</span>
-      </a>
-
-      <nav class="nav-links">
-        <a href="#featured">Featured</a>
-        <a href="#categories">Categories</a>
-        <a href="#guides">Guides</a>
-        <a href="#comparisons">Comparisons</a>
-        <a href="#faq">FAQ</a>
-        <a href="#newsletter" class="nav-button">Stay Updated</a>
-      </nav>
-
-    </div>
-  </header>
-
-
-  <main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="container hero-grid">
-
-        <div>
-
-          <span class="eyebrow">THE SMARTER TECH GUIDE</span>
-
-          <h1>
-            Smarter Tech.<br>
-            <span>Better Choices.</span>
-          </h1>
-
-          <p class="hero-text">
-            Techora helps you understand technology before you buy it.
-            Explore buying guides, comparisons, useful accessories and
-            practical tech recommendations.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#featured" class="btn btn-primary">
-              Explore Tech
-            </a>
-
-            <a href="#guides" class="btn btn-secondary">
-              Read Buying Guides
-            </a>
-          </div>
-
-        </div>
-
-        <div class="hero-image">
-
-          <img
-            src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=85"
-            alt="Modern laptop workspace"
-          >
-
-          <div class="hero-overlay">
-            <strong>Make your next tech decision smarter.</strong>
-            <span>Guides • Comparisons • Accessories</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- TRUST STRIP -->
-
-    <section class="trust-strip">
-
-      <div class="container trust-grid">
-
-        <div class="trust-item">
-          <strong>Buying Guides</strong>
-          <span>Simple explanations</span>
-        </div>
-
-        <div class="trust-item">
-          <strong>Product Categories</strong>
-          <span>Explore useful tech</span>
-        </div>
-
-        <div class="trust-item">
-          <strong>Comparisons</strong>
-          <span>Understand the differences</span>
-        </div>
-
-        <div class="trust-item">
-          <strong>Practical Research</strong>
-          <span>Focus on what matters</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FEATURED TECH -->
-
-    <section class="section" id="featured">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">FEATURED TECH</span>
-            <h2>Tech worth checking out.</h2>
-          </div>
-
-          <p>
-            Explore popular technology categories and learn what to look
-            for before making a purchase.
-          </p>
-
-        </div>
-
-
-        <div class="featured-grid">
-
-          <!-- Keyboard -->
-
-          <article class="featured-card">
-
-            <div class="featured-image">
-              <img
-                src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85"
-                alt="Computer keyboard"
-              >
-            </div>
-
-            <div class="featured-content">
-
-              <span class="tag">KEYBOARDS</span>
-
-              <h3>Find the right keyboard</h3>
-
-              <p>
-                Explore mechanical, wireless and compact keyboard options
-                for different setups.
-              </p>
-
-              <a href="#" class="card-link">
-                Explore Keyboards →
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- Mouse -->
-
-          <article class="featured-card">
-
-            <div class="featured-image">
-              <img
-                src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=85"
-                alt="Computer mouse"
-              >
-            </div>
-
-            <div class="featured-content">
-
-              <span class="tag">MICE</span>
-
-              <h3>Choose your ideal mouse</h3>
-
-              <p>
-                Learn about comfort, connectivity, sensors and everyday
-                mouse features.
-              </p>
-
-              <a href="#" class="card-link">
-                Explore Mice →
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- Headphones -->
-
-          <article class="featured-card">
-
-            <div class="featured-image">
-              <img
-                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85"
-                alt="Wireless headphones"
-              >
-            </div>
-
-            <div class="featured-content">
-
-              <span class="tag">HEADPHONES</span>
-
-              <h3>Better audio, smarter choice</h3>
-
-              <p>
-                Understand comfort, connectivity and features before
-                choosing your next headphones.
-              </p>
-
-              <a href="#" class="card-link">
-                Explore Audio →
-              </a>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CATEGORIES -->
-
-    <section class="section" id="categories">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">EXPLORE CATEGORIES</span>
-            <h2>Find your tech.</h2>
-          </div>
-
-          <p>
-            Browse different technology categories and discover guides
-            designed around real-world use.
-          </p>
-
-        </div>
-
-
-        <div class="category-grid">
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80"
-              alt="Keyboard"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Keyboards</h3>
-                <span>Mechanical • Wireless • Compact</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80"
-              alt="Mouse"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Mice</h3>
-                <span>Wireless • Gaming • Productivity</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80"
-              alt="Headphones"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Headphones</h3>
-                <span>Wireless • Audio • Comfort</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80"
-              alt="Computer monitor"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Monitors</h3>
-                <span>Gaming • Work • 4K</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=800&q=80"
-              alt="Webcam"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Webcams</h3>
-                <span>Meetings • Streaming • Calls</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=800&q=80"
-              alt="USB accessories"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>USB-C Hubs</h3>
-                <span>Connectivity • Ports • Travel</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80"
-              alt="Laptop"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Laptop Accessories</h3>
-                <span>Stands • Bags • Essentials</span>
-              </div>
-            </div>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <img
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80"
-              alt="Desk setup"
-            >
-            <div class="category-overlay">
-              <div>
-                <h3>Desk Setup</h3>
-                <span>Workspace • Accessories • Gear</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- BUYING GUIDES -->
-
-    <section class="section" id="guides">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">BUYING GUIDES</span>
-            <h2>Before you buy.</h2>
-          </div>
-
-          <p>
-            Clear guides that explain the important things to consider
-            before choosing technology.
-          </p>
-
-        </div>
-
-
-        <div class="guides-grid">
-
-          <article class="guide-card">
-
-            <div class="guide-image">
-              <img
-                src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=1000&q=85"
-                alt="Keyboard setup"
-              >
-            </div>
-
-            <div class="guide-content">
-
-              <span class="tag">KEYBOARD GUIDE</span>
-
-              <h3>
-                How to choose a keyboard for your setup
-              </h3>
-
-              <p>
-                Learn which keyboard features actually matter for work,
-                gaming and everyday use.
-              </p>
-
-              <a href="#" class="card-link">
-                Read Guide →
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <article class="guide-card">
-
-            <div class="guide-image">
-              <img
-                src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1000&q=85"
-                alt="Computer mouse"
-              >
-            </div>
-
-            <div class="guide-content">
-
-              <span class="tag">MOUSE GUIDE</span>
-
-              <h3>
-                What should you look for in a mouse?
-              </h3>
-
-              <p>
-                From shape and comfort to connectivity, understand the
-                features worth considering.
-              </p>
-
-              <a href="#" class="card-link">
-                Read Guide →
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <article class="guide-card">
-
-            <div class="guide-image">
-              <img
-                src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1000&q=85"
-                alt="Laptop workspace"
-              >
-            </div>
-
-            <div class="guide-content">
-
-              <span class="tag">DESK SETUP</span>
-
-              <h3>
-                Build a cleaner and smarter workspace
-              </h3>
-
-              <p>
-                Explore practical accessories and ideas for improving
-                your everyday desk setup.
-              </p>
-
-              <a href="#" class="card-link">
-                Read Guide →
-              </a>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- COMPARISONS -->
-
-    <section class="section" id="comparisons">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">COMPARISONS</span>
-            <h2>Understand the difference.</h2>
-          </div>
-
-          <p>
-            Technology can be confusing. These comparisons break down
-            common choices in simple language.
-          </p>
-
-        </div>
-
-
-        <div class="comparison-grid">
-
-          <article class="comparison-card">
-
-            <div class="compare-icon">⌨</div>
-
-            <h3>
-              Mechanical vs Membrane Keyboard
-            </h3>
-
-            <p>
-              Compare feel, sound, design and everyday usability to
-              understand which type fits your needs.
-            </p>
-
-            <a href="#" class="card-link">
-              Compare →
-            </a>
-
-          </article>
-
-
-          <article class="comparison-card">
-
-            <div class="compare-icon">🖱</div>
-
-            <h3>
-              Wireless vs Wired Mouse
-            </h3>
-
-            <p>
-              Understand the practical differences between wireless
-              freedom and wired connectivity.
-            </p>
-
-            <a href="#" class="card-link">
-              Compare →
-            </a>
-
-          </article>
-
-
-          <article class="comparison-card">
-
-            <div class="compare-icon">▣</div>
-
-            <h3>
-              1080p vs 1440p Monitor
-            </h3>
-
-            <p>
-              Learn how resolution changes your viewing experience and
-              what type of user may prefer each option.
-            </p>
-
-            <a href="#" class="card-link">
-              Compare →
-            </a>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- TRENDING TECH -->
-
-    <section class="section">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">TECH INSPIRATION</span>
-            <h2>Build a better setup.</h2>
-          </div>
-
-          <p>
-            Explore ideas for creating a cleaner, more comfortable and
-            more useful technology setup.
-          </p>
-
-        </div>
-
-
-        <div class="trending-grid">
-
-          <article class="trend-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1400&q=85"
-              alt="Modern desk setup"
-            >
-
-            <div class="trend-content">
-              <span class="tag">DESK SETUP</span>
-              <h3>The modern workspace</h3>
-              <p>
-                Ideas for a cleaner and more productive desk.
-              </p>
-            </div>
-
-          </article>
-
-
-          <article class="trend-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=85"
-              alt="Laptop workspace"
-            >
-
-            <div class="trend-content">
-              <span class="tag">LAPTOPS</span>
-              <h3>Portable productivity</h3>
-              <p>
-                Useful laptop accessories.
-              </p>
-            </div>
-
-          </article>
-
-
-          <article class="trend-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85"
-              alt="Headphones"
-            >
-
-            <div class="trend-content">
-              <span class="tag">AUDIO</span>
-              <h3>Better listening</h3>
-              <p>
-                Explore headphone features.
-              </p>
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- HOW WE CHOOSE -->
-
-    <section class="section choose-section" id="trust">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">OUR APPROACH</span>
-            <h2>How we evaluate tech.</h2>
-          </div>
-
-          <p>
-            We focus on practical information that helps readers understand
-            what they are considering before buying.
-          </p>
-
-        </div>
-
-
-        <div class="choose-grid">
-
-          <article class="choose-card">
-            <div class="choose-number">01</div>
-            <h3>Use Case</h3>
-            <p>
-              Different people need different technology. We consider
-              how a product is intended to be used.
-            </p>
-          </article>
-
-
-          <article class="choose-card">
-            <div class="choose-number">02</div>
-            <h3>Important Features</h3>
-            <p>
-              We focus on features that can actually affect the everyday
-              experience.
-            </p>
-          </article>
-
-
-          <article class="choose-card">
-            <div class="choose-number">03</div>
-            <h3>Value</h3>
-            <p>
-              Understanding what you receive for the money is an important
-              part of making a purchase decision.
-            </p>
-          </article>
-
-
-          <article class="choose-card">
-            <div class="choose-number">04</div>
-            <h3>Clarity</h3>
-            <p>
-              Complex technology should be easier to understand. Our goal
-              is to keep the information practical and clear.
-            </p>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FAQ -->
-
-    <section class="section" id="faq">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <span class="eyebrow">FAQ</span>
-            <h2>Questions, answered.</h2>
-          </div>
-
-          <p>
-            A few common questions about Techora and our technology guides.
-          </p>
-
-        </div>
-
-
-        <div class="faq-wrap">
-
-          <details>
-            <summary>
-              What is Techora?
-            </summary>
-
-            <p>
-              Techora is a technology-focused website designed to help
-              readers research products, understand features and explore
-              useful buying guides.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              Does Techora sell products directly?
-            </summary>
-
-            <p>
-              Techora is designed as an information and recommendation
-              website. Product links may direct visitors to third-party
-              retailers.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              How should I use the buying guides?
-            </summary>
-
-            <p>
-              Start with your specific use case, review the important
-              features and compare the options that match your needs.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              Are recommendations suitable for everyone?
-            </summary>
-
-            <p>
-              Technology needs vary from person to person. Guides are
-              intended to provide useful research points rather than
-              replace your own purchasing decision.
-            </p>
-          </details>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- NEWSLETTER -->
-
-    <section class="section" id="newsletter">
-
-      <div class="container">
-
-        <div class="newsletter">
-
-          <span class="eyebrow">TECH UPDATES</span>
-
-          <h2>
-            Stay ahead of the tech.
-          </h2>
-
-          <p>
-            Get useful technology guides, comparisons and buying tips
-            delivered when new content is published.
-          </p>
-
-          <form
-            class="newsletter-form"
-            onsubmit="subscribeUser(event)"
-          >
-
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              required
-            >
-
-            <button
-              type="submit"
-              class="btn btn-primary"
-            >
-              Subscribe
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-main">
-
-        <div class="footer-brand">
-
-          <a href="index.html" class="logo">
-            Tech<span>ora</span>
-          </a>
-
-          <p>
-            Smarter technology research for better-informed choices.
-            Explore guides, comparisons and useful tech categories.
-          </p>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>Explore</h4>
-
-          <a href="#featured">Featured</a>
-          <a href="#categories">Categories</a>
-          <a href="#guides">Buying Guides</a>
-          <a href="#comparisons">Comparisons</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>Company</h4>
-
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-          <h4>Legal</h4>
-
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="affiliate-disclosure.html">
-            Affiliate Disclosure
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="footer-bottom">
-
-        <span>
-          © 2026 Techora. All rights reserved.
-        </span>
-
-        <span>
-          Independent technology guides and resources.
-        </span>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <script>
-
-    function subscribeUser(event) {
-
-      event.preventDefault();
-
-      const email = document.getElementById("email").value;
-
-      if (email) {
-
-        alert(
-          "Thanks for subscribing! Newsletter functionality will be connected soon."
-        );
-
-        document.getElementById("email").value = "";
-
-      }
-
-    }
-
-  </script>
-
+<div class="topbar">Techora contains affiliate links. <strong>We may earn a commission</strong> when you buy through our links.</div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">Tech<span>ora</span></a>
+    <nav class="nav-links">
+      <a href="#deals">Deals</a><a href="#categories">Categories</a><a href="#products">Products</a><a href="#guides">Guides</a><a href="#faq">FAQ</a>
+      <a class="nav-cta" href="#products">Shop Picks</a>
+    </nav>
+    <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#deals" onclick="toggleMenu()">Deals</a><a href="#categories" onclick="toggleMenu()">Categories</a><a href="#products" onclick="toggleMenu()">Products</a><a href="#guides" onclick="toggleMenu()">Guides</a><a href="#faq" onclick="toggleMenu()">FAQ</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <span class="badge"><i></i> SMARTER TECH SHOPPING</span>
+   <h1>Find tech you’ll <span>actually love.</span></h1>
+   <p class="hero-text">Discover useful gadgets, accessories and desk gear with simple buying guides and carefully selected Amazon products.</p>
+   <div class="actions"><a class="btn btn-primary" href="#products">Explore Products</a><a class="btn btn-light" href="#guides">Read Buying Guides</a></div>
+  </div>
+  <div class="hero-card">
+   <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=85" alt="Premium laptop and technology workspace" loading="eager">
+   <div class="hero-product"><div><small>EDITOR'S PICK</small><strong>Build a cleaner tech setup</strong></div><a href="#products">Explore Picks →</a></div>
+  </div>
+ </div>
+</section>
+
+<section class="trust"><div class="container trust-grid">
+ <div class="trust-item"><strong>Curated Picks</strong><span>Useful products worth exploring</span></div>
+ <div class="trust-item"><strong>Buying Guides</strong><span>Simple, practical explanations</span></div>
+ <div class="trust-item"><strong>Product Research</strong><span>Features that actually matter</span></div>
+ <div class="trust-item"><strong>Amazon Links</strong><span>Easy product discovery</span></div>
+</div></section>
+
+<section class="section" id="products">
+ <div class="container">
+  <div class="section-head"><div><span class="kicker">FEATURED PICKS</span><h2>Popular tech to explore.</h2></div><p>Browse a clean selection of everyday tech categories. Product details and Amazon availability can change over time.</p></div>
+  <div class="products">
+   <article class="product"><div class="product-img"><span class="product-tag">POPULAR</span><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85" alt="Mechanical keyboard" loading="lazy"></div><div class="product-body"><span class="product-cat">KEYBOARDS</span><h3>Mechanical Keyboards</h3><div class="stars">★★★★★</div><p>Explore keyboards for work, gaming and everyday productivity.</p><div class="product-bottom"><span class="price">Explore</span><a class="amazon-btn" href="https://www.amazon.com/s?k=mechanical+keyboard" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a></div></div></article>
+   <article class="product"><div class="product-img"><span class="product-tag">TOP PICK</span><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=85" alt="Wireless computer mouse" loading="lazy"></div><div class="product-body"><span class="product-cat">MICE</span><h3>Wireless Mice</h3><div class="stars">★★★★★</div><p>Compare comfort, connectivity and useful features before buying.</p><div class="product-bottom"><span class="price">Explore</span><a class="amazon-btn" href="https://www.amazon.com/s?k=wireless+mouse" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a></div></div></article>
+   <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Wireless headphones" loading="lazy"></div><div class="product-body"><span class="product-cat">AUDIO</span><h3>Wireless Headphones</h3><div class="stars">★★★★★</div><p>Discover headphones for music, calls, travel and everyday listening.</p><div class="product-bottom"><span class="price">Explore</span><a class="amazon-btn" href="https://www.amazon.com/s?k=wireless+headphones" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a></div></div></article>
+   <article class="product"><div class="product-img"><span class="product-tag">WORKSPACE</span><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=85" alt="Computer monitor" loading="lazy"></div><div class="product-body"><span class="product-cat">MONITORS</span><h3>Monitors & Displays</h3><div class="stars">★★★★★</div><p>Find the right display for productivity, gaming and creative work.</p><div class="product-bottom"><span class="price">Explore</span><a class="amazon-btn" href="https://www.amazon.com/s?k=computer+monitor" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a></div></div></article>
+  </div>
+  <p class="disclosure">Affiliate disclosure: Techora may receive a commission from qualifying purchases made through certain links. This does not change the price you pay.</p>
+ </div>
+</section>
+
+<section class="section alt" id="categories">
+ <div class="container">
+  <div class="section-head"><div><span class="kicker">SHOP BY CATEGORY</span><h2>Find your setup.</h2></div><p>Jump into the tech categories people use every day, from desk accessories to audio and laptop gear.</p></div>
+  <div class="categories">
+   <a class="category" href="https://www.amazon.com/s?k=mechanical+keyboard" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1595044426077-d36d9236d54a?auto=format&fit=crop&w=900&q=85" alt="Keyboards" loading="lazy"><div class="category-content"><h3>Keyboards</h3><span>Mechanical • Wireless • Compact</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=wireless+mouse" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=85" alt="Computer mice" loading="lazy"><div class="category-content"><h3>Mice</h3><span>Wireless • Gaming • Productivity</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=wireless+headphones" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Headphones" loading="lazy"><div class="category-content"><h3>Headphones</h3><span>Wireless • ANC • Travel</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=usb+c+hub" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=85" alt="USB C hub" loading="lazy"><div class="category-content"><h3>USB-C Hubs</h3><span>Ports • Connectivity • Travel</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=laptop+stand" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=85" alt="Laptop accessories" loading="lazy"><div class="category-content"><h3>Laptop Gear</h3><span>Stands • Bags • Accessories</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=4k+monitor" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=85" alt="4K monitor" loading="lazy"><div class="category-content"><h3>Monitors</h3><span>4K • Gaming • Work</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=desk+setup+accessories" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=85" alt="Desk setup" loading="lazy"><div class="category-content"><h3>Desk Setup</h3><span>Workspace • Lighting • Gear</span></div></a>
+   <a class="category" href="https://www.amazon.com/s?k=webcam" target="_blank" rel="nofollow sponsored noopener"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=85" alt="Webcam" loading="lazy"><div class="category-content"><h3>Webcams</h3><span>Calls • Streaming • Meetings</span></div></a>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="deals"><div class="container"><div class="deal"><div><span class="kicker">SMARTER SHOPPING</span><h2>Don’t buy tech<br>without checking first.</h2><p>Use Techora to compare categories, understand important features and jump to Amazon when you’re ready to explore current products.</p><div class="actions" style="margin-top:20px"><a class="btn btn-primary" href="#products">See Featured Picks</a></div></div><div class="deal-badge"><strong>TECH</strong><span>Deals & Guides</span></div></div></div></section>
+
+<section class="section alt" id="guides">
+ <div class="container">
+  <div class="section-head"><div><span class="kicker">BUYING GUIDES</span><h2>Know before you buy.</h2></div><p>Clear explanations designed to help you understand what matters before choosing a product.</p></div>
+  <div class="guides">
+   <article class="guide"><div class="guide-img"><img src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=1000&q=85" alt="Mechanical keyboard setup" loading="lazy"></div><div class="guide-body"><span class="kicker">KEYBOARD GUIDE</span><h3>How to choose a keyboard for your setup</h3><p>Switches, layouts, connectivity and other features explained in simple terms.</p><a class="read" href="#products">Explore keyboards →</a></div></article>
+   <article class="guide"><div class="guide-img"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=1000&q=85" alt="Computer mouse guide" loading="lazy"></div><div class="guide-body"><span class="kicker">MOUSE GUIDE</span><h3>What should you look for in a mouse?</h3><p>Understand shape, sensors, connectivity and comfort before choosing.</p><a class="read" href="#products">Explore mice →</a></div></article>
+   <article class="guide"><div class="guide-img"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1000&q=85" alt="Modern desk setup" loading="lazy"></div><div class="guide-body"><span class="kicker">DESK SETUP</span><h3>Build a cleaner and smarter workspace</h3><p>Discover practical accessories that can make your everyday desk more useful.</p><a class="read" href="#categories">Explore desk gear →</a></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="comparisons">
+ <div class="container">
+  <div class="section-head"><div><span class="kicker">COMPARISONS</span><h2>Understand the difference.</h2></div><p>Quick comparisons help you identify the features and trade-offs worth considering.</p></div>
+  <div class="compare">
+   <article class="compare-card"><div class="compare-icon">⌨</div><h3>Mechanical vs Membrane</h3><p>Compare typing feel, sound, durability and everyday usability.</p><a class="read" href="#guides">Read comparison →</a></article>
+   <article class="compare-card"><div class="compare-icon">🖱</div><h3>Wireless vs Wired Mouse</h3><p>Understand the practical differences between wireless freedom and wired connectivity.</p><a class="read" href="#guides">Read comparison →</a></article>
+   <article class="compare-card"><div class="compare-icon">▣</div><h3>1080p vs 1440p</h3><p>Learn how display resolution can affect work, gaming and viewing.</p><a class="read" href="#guides">Read comparison →</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="section alt" id="faq"><div class="container"><div class="section-head"><div><span class="kicker">FAQ</span><h2>Questions, answered.</h2></div><p>Useful information about Techora, affiliate links and product research.</p></div><div class="faq">
+<details><summary>What is Techora?</summary><p>Techora is a technology discovery and buying-guide website. We help visitors research products and then provide links to third-party retailers such as Amazon.</p></details>
+<details><summary>Does Techora sell products directly?</summary><p>No. Techora does not process product orders. When you click a product link, you may be taken to Amazon or another third-party retailer.</p></details>
+<details><summary>Does Techora use affiliate links?</summary><p>Yes. Some links may be affiliate links, which means Techora may earn a commission if you make a qualifying purchase. This does not add an extra cost to you.</p></details>
+<details><summary>Do prices and availability stay the same?</summary><p>No. Product prices, promotions, ratings and availability can change. Always check the retailer’s current product page before purchasing.</p></details>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="newsletter"><span class="kicker">TECH UPDATES</span><h2>Get smarter tech picks.</h2><p>Join the Techora list for new buying guides, product ideas and useful tech updates.</p><form class="form" onsubmit="subscribeUser(event)"><input id="email" type="email" placeholder="Your email address" required><button class="btn btn-primary" type="submit">Subscribe</button></form></div></div></section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-brand"><a class="logo" href="index.html">Tech<span>ora</span></a><p>Smart technology discovery, buying guides and product research for better-informed shopping decisions.</p></div>
+   <div class="footer-col"><div class="footer-title">Explore</div><a href="#deals">Deals</a><a href="#categories">Categories</a><a href="#products">Products</a><a href="#guides">Guides</a></div>
+   <div class="footer-col"><div class="footer-title">Company</div><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+   <div class="footer-col"><div class="footer-title">Legal</div><a href="privacy.html">Privacy Policy</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Techora. All rights reserved.</span><span>Independent tech guides • Product links may be affiliate links.</span></div>
+ </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open")}
+function subscribeUser(e){e.preventDefault();const input=document.getElementById("email");if(input.value){alert("Thanks for subscribing! Newsletter functionality can be connected to an email service later.");input.value=""}}
+</script>
 </body>
 </html>
